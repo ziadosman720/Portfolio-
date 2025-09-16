@@ -14,6 +14,8 @@
       --accent-blue: #00d4ff;
       --accent-red: #ff3366;
       --accent-purple: #8b5cf6;
+      --accent-green: #10b981;
+      --accent-orange: #f59e0b;
       --glass-bg: rgba(255, 255, 255, 0.05);
       --glass-border: rgba(255, 255, 255, 0.1);
       --text-primary: #ffffff;
@@ -418,6 +420,142 @@
       color: var(--accent-blue);
     }
 
+    /* Services Section */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      margin-top: 60px;
+    }
+
+    .service-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 40px 30px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:nth-child(1)::before { background: var(--accent-blue); }
+    .service-card:nth-child(2)::before { background: var(--accent-red); }
+    .service-card:nth-child(3)::before { background: var(--accent-purple); }
+    .service-card:nth-child(4)::before { background: var(--accent-green); }
+    .service-card:nth-child(5)::before { background: var(--accent-orange); }
+    .service-card:nth-child(6)::before { background: var(--primary-gradient); }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    .service-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto 25px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .service-card:nth-child(1) .service-icon {
+      background: rgba(0, 212, 255, 0.1);
+      border: 2px solid rgba(0, 212, 255, 0.3);
+      color: var(--accent-blue);
+    }
+
+    .service-card:nth-child(2) .service-icon {
+      background: rgba(255, 51, 102, 0.1);
+      border: 2px solid rgba(255, 51, 102, 0.3);
+      color: var(--accent-red);
+    }
+
+    .service-card:nth-child(3) .service-icon {
+      background: rgba(139, 92, 246, 0.1);
+      border: 2px solid rgba(139, 92, 246, 0.3);
+      color: var(--accent-purple);
+    }
+
+    .service-card:nth-child(4) .service-icon {
+      background: rgba(16, 185, 129, 0.1);
+      border: 2px solid rgba(16, 185, 129, 0.3);
+      color: var(--accent-green);
+    }
+
+    .service-card:nth-child(5) .service-icon {
+      background: rgba(245, 158, 11, 0.1);
+      border: 2px solid rgba(245, 158, 11, 0.3);
+      color: var(--accent-orange);
+    }
+
+    .service-card:nth-child(6) .service-icon {
+      background: rgba(102, 126, 234, 0.1);
+      border: 2px solid rgba(102, 126, 234, 0.3);
+      color: var(--accent-purple);
+    }
+
+    .service-card:hover .service-icon {
+      transform: scale(1.1) rotate(360deg);
+    }
+
+    .service-card h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: var(--text-primary);
+    }
+
+    .service-card p {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .service-features {
+      list-style: none;
+      text-align: left;
+      margin-top: 20px;
+    }
+
+    .service-features li {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .service-features li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--accent-green);
+      font-weight: bold;
+    }
+
     /* Contact Section */
     .contact-container {
       text-align: center;
@@ -483,7 +621,7 @@
       }
       
       .nav-links {
-        gap: 20px;
+        gap: 15px;
       }
       
       .nav-links a {
@@ -500,7 +638,7 @@
         align-items: center;
       }
       
-      .skills-grid {
+      .skills-grid, .services-grid {
         grid-template-columns: 1fr;
         gap: 20px;
       }
@@ -564,6 +702,7 @@
         <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
         <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
         <li><a href="#skills"><i class="fas fa-laptop-code"></i> Skills</a></li>
+        <li><a href="#services"><i class="fas fa-cogs"></i> Services</a></li>
         <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
       </ul>
     </div>
@@ -572,9 +711,8 @@
   <!-- Hero Section -->
   <section id="home" class="hero">
     <div class="profile-container">
-  <div class="profile-img">
-  <img src="images/profile.png" alt="Ziad Osman">
-</div>
+      <div class="profile-img">
+        <img src="images/profile.png" alt="Ziad Osman">
       </div>
     </div>
     <h1>Hello, I'm <span class="name-highlight">Ziad Osman</span></h1>
@@ -637,6 +775,96 @@
           <li>Linux Administration</li>
           <li>Network Security</li>
           <li>Container Security</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="fade-in">
+    <h2 class="section-title">Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-search"></i>
+        </div>
+        <h3>Security Assessment & Auditing</h3>
+        <p>Comprehensive security evaluations to identify vulnerabilities and assess your organization's current security posture.</p>
+        <ul class="service-features">
+          <li>Infrastructure Security Audit</li>
+          <li>Security Policy Review</li>
+          <li>Compliance Assessment</li>
+          <li>Risk Analysis & Reporting</li>
+        </ul>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-exclamation-triangle"></i>
+        </div>
+        <h3>Incident Response & Analysis</h3>
+        <p>Rapid response to security incidents with thorough forensic analysis and remediation strategies.</p>
+        <ul class="service-features">
+          <li>24/7 Incident Response</li>
+          <li>Digital Forensics</li>
+          <li>Malware Analysis</li>
+          <li>Recovery Planning</li>
+        </ul>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-crosshairs"></i>
+        </div>
+        <h3>Penetration Testing</h3>
+        <p>Ethical hacking services to identify and exploit vulnerabilities before malicious actors can.</p>
+        <ul class="service-features">
+          <li>Network Penetration Testing</li>
+          <li>Web Application Security</li>
+          <li>Wireless Security Testing</li>
+          <li>Social Engineering Assessment</li>
+        </ul>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-eye"></i>
+        </div>
+        <h3>Security Monitoring & SOC</h3>
+        <p>Continuous security monitoring and threat detection to protect your assets 24/7.</p>
+        <ul class="service-features">
+          <li>SIEM Implementation</li>
+          <li>Real-time Threat Detection</li>
+          <li>Log Analysis & Correlation</li>
+          <li>Threat Intelligence Integration</li>
+        </ul>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-clipboard-list"></i>
+        </div>
+        <h3>Compliance & Risk Management</h3>
+        <p>Ensure your organization meets industry standards and regulatory requirements.</p>
+        <ul class="service-features">
+          <li>GDPR, HIPAA, PCI-DSS</li>
+          <li>ISO 27001 Implementation</li>
+          <li>Risk Assessment</li>
+          <li>Security Framework Design</li>
+        </ul>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <h3>Security Training & Consulting</h3>
+        <p>Expert guidance and training to build your team's cybersecurity knowledge and capabilities.</p>
+        <ul class="service-features">
+          <li>Security Awareness Training</li>
+          <li>Technical Skills Development</li>
+          <li>Strategic Security Consulting</li>
+          <li>Custom Training Programs</li>
         </ul>
       </div>
     </div>
@@ -732,7 +960,7 @@
 
     // Custom cursor
     const cursor = document.querySelector('.cursor');
-    const interactiveElements = document.querySelectorAll('a, button, .skill-card');
+    const interactiveElements = document.querySelectorAll('a, button, .skill-card, .service-card');
 
     document.addEventListener('mousemove', (e) => {
       cursor.style.left = e.clientX + 'px';
